@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoanAppln</title>
+
+</head>
+
+<body>
+<div style="color:black">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h1 style="text-align:center;">Loan Predictor Application</h1>
+</div>
+<table>
+<div class="row">
+  <div class="column">
+    <tr><th>
+	<h3>Loan Amount</h3></th><th><input id="numbox" name="loanamount" required="required">
+  </th></tr>
+  <tr>
+	<th><h3>Gender</h3></th><th><select name="gender" id="dropdown" required="required">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+    </th></tr><tr><th>
+	<h3>Credit History</h3></th><th><select name="credithistory" id="dropdown" required="required">
+                <option value="All depts Paid">All depts Paid</option>
+                <option value="No depts Paid">No depts Paid</option>
+            </select></th></tr>
+	</div>
+    <tr>
+  <div class="column">
+	<tr><th><h3>Loan Amount Term</h3></th><th><input id="numbox" name="loanamountterm" required="required"></th></tr>
+	<tr><th><h3>Married?</h3></th><th><select name="married" id="dropdown" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select></th></tr></div>
+	<tr><th><h3>Self Employed?</h3></th><th><select name="selfemployed" id="dropdown" required="required">
+    <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select></th></tr>
+	</div>
+  <div class="column">
+	<tr><th><h3>Applicant Income</h3></th><th><input id="numbox" name="applicantincome" type="number ">
+	</th></tr><tr><th><h3>Education</h3></th><th><select name="education" id="dropdown" required="required">
+                <option value="Graduate">Graduate</option>
+                <option value="No Graduate">No Graduate</option>
+            </select></th></tr>
+	<tr><th><h3>Property Area</h3></th><th><select name="propertyarea" id="dropdown" required="required">
+                <option value="Urban">Urban</option>
+                <option value="SemiUrban">SemiUrban</option>
+				<option value="Rural">Rural</option>
+            </select></th></tr>
+	</div>
+  <div class="column">
+	<tr><th><h3>Coapplicant Income</h3></th><th><input id="numbox" name="coapplicantincome" required="required"></th></tr>
+	<tr><th><h3>Any Dependents?</h3></th><th><select name="dependents" id="dropdown" required="required">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+				<option value="3+">3+</option>
+            </select></th>
+	</tr>		
+	</div>
+</div>
+
+
+			
+            
+			
+			
+			
+<tr>						
+<th><br><br><button id="evalbutton" type="submit ">Evaluate the Loan Application</button>
+            <br>
+
+
+</th></tr>
+</table>
+
+        </form>
+
+
+
+        <br><h1 style="background-color:green;color:white;">{{ prediction_pos }}<h3>
+		<h1 style="background-color:rgb(176, 10, 10);color:white;">{{ prediction_neg }}<h3>
+    </div>
+
+
+
+
+    <style>
+        body {
+            background-color: White;
+            text-align: left;
+            padding: 5px;
+			padding: 1; 
+			margin: 1;
+			background-image : url('http://www.bpmfinancial.com/images/bpm/slide_02-loan.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size:cover;
+			
+        }
+		
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 60%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+              
+        #dropdown {
+            width: 200px;
+            height: 35px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 19px;
+        }
+        
+        #dropdown:hover {
+            background-color: white;
+        }
+        
+                
+        #evalbutton {
+            width: 250px;
+            height: 50px;
+            text-align: center;
+            border-radius: 24px;
+            font-size: 15px;
+			color: white;
+			background-color: blue;
+        }
+        
+        #evalbutton:hover {
+            background-color: darkblue;
+        }
+        
+        #numbox {
+            border-radius: 1px;
+			width: 300px;
+            height: 25px;
+            font-size: 15px;
+            text-align: left;
+        }
+		.column {
+		float: left;
+		width: 25%;
+        font-size: medium;
+        font-weight: 400;
+        font-family: 'Times New Roman', Times, serif;
+		}
+		
+		/* Clear floats after the columns */
+		.row:after {
+		content: "";
+		display: table;
+		clear: both;
+		}
+    </style>
+</body>
+
+</html>
